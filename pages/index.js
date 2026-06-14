@@ -19,13 +19,15 @@ export default function Home() {
         </video>
         <div className="absolute bottom-0 left-0 w-full h-64 flex justify-center items-center">
           <button className="z-2 bg-green-950/45 text-xl text-white font-bold py-3 px-6 rounded hover:scale-105 transition-transform">
-            ¡Registrate ahora!
+            <a href="#form">
+              ¡Registrate ahora!
+            </a>
           </button>
         </div>
       </div>
 
       {/* Form */}
-      <div className="min-h-screen w-full flex bg-black">
+      <div id="form" className="min-h-screen w-full flex bg-black">
         {/* Left side */}
         <div className="w-1/2 flex items-center justify-center">
           <div className="w-11/12 h-[80vh] p-12 relative overflow-hidden text-white">
@@ -35,30 +37,17 @@ export default function Home() {
               <h2 className="text-4xl font-semibold mb-4">Corre con nosotros!</h2>
               <p className="mb-8 text-green-100/90">Completa estos sencillos pasos para registrar tu cuenta.</p>
 
-              <div className=" mt-8 grid grid-cols-2 gap-4">
-                <div className="p-4 bg-white text-black rounded-lg shadow-md flex items-center space-x-3">
-                  <div className="bg-green-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
-                  <div>
-                    <p className="font-semibold">Registra tu cuenta</p>
-                    <p className="text-sm text-black/60">Información básica</p>
-                  </div>
-                </div>
 
-                <div className="p-4 bg-white/10 rounded-lg flex items-center space-x-3">
-                  <div className="bg-white/30 text-white rounded-full w-8 h-8 flex items-center justify-center">3</div>
-                  <div>
-                    <p className="font-semibold text-white/90">Personaliza tu perfil</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
         {/* Right side */}
         <div className="w-1/2 flex items-center justify-center">
           <div className="w-3/4 max-w-lg p-8 rounded-2xl text-gray-200 shadow-lg">
-            <h3 className="text-xl font-semibold mb-2">Crear cuenta</h3>
-            <p className="text-sm text-gray-400 mb-6">Introduce tus datos personales para registrarte a la carrera</p>
+            <h3 className="text-xl font-semibold mb-2">
+              Regístrate para la carrera Sendero Olvidado Trail Run
+            </h3>
+            <p className="text-sm text-gray-400 mb-6">Rellena el siguiente formulario con tus datos personales.</p>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -85,9 +74,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full h-16 bg-green-950/30 text-gray-200 flex items-center justify-center">
+      <div className="w-full h-16 p-10 bg-black text-gray-200 flex items-center justify-start border-t border-gray-400">
         <p className="text-sm">
-          Desarrollado por: <a href="https://devshore.com.mx" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
+          Desarrollado por: <a href="https://devshore.com.mx" target="_blank" rel="noopener noreferrer">
             Devshore
           </a>
         </p>
