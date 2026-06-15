@@ -58,11 +58,13 @@ export default function Home() {
           loop 
           muted 
           playsinline 
-          preload="auto" 
+          preload="auto"
+          controlsList="nofullscreen"
+          disablePictureInPicture
           onCanPlay={() => setIsVideoLoading(false)}
           onPlaying={() => setIsVideoLoading(false)}
           onError={() => setIsVideoLoading(false)}
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         >
           <source src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781558132/video-cover_ijpo5c.mp4" type="video/mp4" />
           Tu navegador no soporta el video.
