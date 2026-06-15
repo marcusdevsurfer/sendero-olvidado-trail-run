@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import RegisterForm from "./components/RegisterForm";
+import Loader from "./components/Loader";
 
 export default function Home() {
   const [status, setStatus] = useState(null);
+  const [isVideoLoading, setIsVideoLoading] = useState(false);
+
+  useEffect(() => {
+    // Fallback: ocultar loader después de 3 segundos
+    const timer = setTimeout(() => {
+      setIsVideoLoading(false);
+    }, 3000);
+
+    // Prevenir scroll automático al cargar
+    window.scrollTo(0, 0);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const onSubmit = async (data) => {
     setStatus({ type: "loading", message: "Enviando datos..." });
@@ -31,6 +45,7 @@ export default function Home() {
 
   return (
     <main>
+      {isVideoLoading && <Loader />}
       {/* Navbar */}
       {/* <div className="absolute top-0 left-0 w-full h-16 bg-gray-900 text-white flex items-center justify-center">
         Este espacio sera el Navbar
@@ -38,8 +53,19 @@ export default function Home() {
 
       {/* Cover Video */}
       <div className="min-h-screen w-full flex items-center justify-center bg-gray-700 relative overflow-hidden">
-        <video autoPlay loop muted playsinline preload="auto" poster="/run.jpg" className="absolute inset-0 w-full h-full object-cover z-0">
-          <source src="/video-cover.mp4" type="video/mp4" />
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsinline 
+          preload="auto" 
+          poster="/run.jpg" 
+          onCanPlay={() => setIsVideoLoading(false)}
+          onPlaying={() => setIsVideoLoading(false)}
+          onError={() => setIsVideoLoading(false)}
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781558132/video-cover_ijpo5c.mp4" type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
         <div className="absolute bottom-0 left-0 w-full h-32 md:h-64 flex justify-center items-center z-10">
