@@ -45,7 +45,6 @@ export default function Home() {
 
   return (
     <main>
-      {isVideoLoading && <Loader />}
       {/* Navbar */}
       {/* <div className="absolute top-0 left-0 w-full h-16 bg-gray-900 text-white flex items-center justify-center">
         Este espacio sera el Navbar
@@ -61,9 +60,6 @@ export default function Home() {
           preload="auto"
           controlsList="nofullscreen"
           disablePictureInPicture
-          onCanPlay={() => setIsVideoLoading(false)}
-          onPlaying={() => setIsVideoLoading(false)}
-          onError={() => setIsVideoLoading(false)}
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         >
           <source src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781558132/video-cover_ijpo5c.mp4" type="video/mp4" />
