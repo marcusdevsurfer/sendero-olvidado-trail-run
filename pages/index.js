@@ -37,13 +37,13 @@ export default function Home() {
       </div> */}
 
       {/* Cover Video */}
-      <div className="min-h-screen w-full flex items-center justify-center bg-gray-700">
-        <video autoPlay loop muted playsinline preload="metadata" className="absolute inset-0 w-full h-full object-cover z-0">
+      <div className="min-h-screen w-full flex items-center justify-center bg-gray-700 relative overflow-hidden">
+        <video autoPlay loop muted playsinline preload="auto" poster="/run.jpg" className="absolute inset-0 w-full h-full object-cover z-0">
           <source src="/video-cover.mp4" type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
-        <div className="absolute bottom-0 left-0 w-full h-64 flex justify-center items-center">
-          <button className="z-2 bg-green-950/45 text-xl text-white font-bold py-3 px-6 rounded hover:scale-105 transition-transform">
+        <div className="absolute bottom-0 left-0 w-full h-32 md:h-64 flex justify-center items-center z-10">
+          <button className="bg-green-950/45 text-lg md:text-xl text-white font-bold py-3 px-6 rounded hover:scale-105 transition-transform">
             <a href="#form">
               ¡Registrate ahora!
             </a>
