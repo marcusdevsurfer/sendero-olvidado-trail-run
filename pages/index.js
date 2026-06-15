@@ -32,13 +32,13 @@ export default function Home() {
   return (
     <main>
       {/* Navbar */}
-      <div className="absolute top-0 left-0 w-full h-16 bg-gray-900 text-white flex items-center justify-center">
+      {/* <div className="absolute top-0 left-0 w-full h-16 bg-gray-900 text-white flex items-center justify-center">
         Este espacio sera el Navbar
-      </div>
+      </div> */}
 
       {/* Cover Video */}
       <div className="min-h-screen w-full flex items-center justify-center bg-gray-700">
-        <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover z-0">
+        <video autoPlay loop muted playsinline preload="metadata" className="absolute inset-0 w-full h-full object-cover z-0">
           <source src="/video-cover.mp4" type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
@@ -75,7 +75,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full h-16 p-10 bg-black text-gray-200 flex items-center justify-start border-t border-gray-400">
+      <div className="w-full h-16 p-10 bg-black text-gray-200 flex items-center justify-start border-t border-gray-900">
         <p className="text-sm">
           Desarrollado por: <a href="https://devshore.com.mx" target="_blank" rel="noopener noreferrer">
             Devshore
