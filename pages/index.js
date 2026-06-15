@@ -52,20 +52,20 @@ export default function Home() {
 
       {/* Cover Video */}
       <div className="min-h-screen w-full flex items-center justify-center bg-gray-700 relative overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          webkit-playsinline 
-          x5-playsinline 
+        <video
+          src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781558132/video-cover_ijpo5c.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          webkit-playsinline
+          x5-playsinline
           preload="auto"
           controls={false}
           controlsList="nofullscreen"
           disablePictureInPicture
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         >
-          <source src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781558132/video-cover_ijpo5c.mp4" type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
         <div className="absolute inset-0 z-5 pointer-events-auto" onClick={(e) => e.preventDefault()} />
