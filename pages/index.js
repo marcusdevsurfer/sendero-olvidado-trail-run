@@ -52,25 +52,25 @@ export default function Home() {
       </div>
 
       {/* Form */}
-      <div id="form" className="min-h-screen w-full flex bg-black">
+      <div id="form" className="min-h-screen w-full flex flex-col md:flex-row bg-black">
         {/* Left side */}
-        <div className="w-1/2 flex items-center justify-center">
-          <div className="w-11/12 h-[80vh] p-12 relative overflow-hidden text-white">
-            <Image src="/run.jpg" alt="Run" fill className="object-cover absolute inset-0 w-full h-full z-0 rounded-l-2xl" />
+        <div className="w-full md:w-1/2 flex items-center justify-center py-8 md:py-0">
+          <div className="w-11/12 h-48 md:h-[80vh] p-6 md:p-12 relative overflow-hidden text-white rounded-2xl md:rounded-l-2xl">
+            <Image src="/run.jpg" alt="Run" fill className="object-cover absolute inset-0 w-full h-full z-0 rounded-2xl md:rounded-l-2xl" />
             <div className="absolute inset-0 bg-gradient-to-br from-green-950/60 via-green-950/50 to-green-900/30 z-1"></div>
-            <div className="absolute left-0 bottom-0 p-10 z-10">
-              <h2 className="text-4xl font-semibold mb-4">Corre con nosotros!</h2>
-              <p className="mb-8 text-green-100/90">Completa estos sencillos pasos para registrar tu cuenta.</p>
+            <div className="absolute left-0 bottom-0 p-4 md:p-10 z-10">
+              <h2 className="text-2xl md:text-4xl font-semibold mb-2 md:mb-4">Corre con nosotros!</h2>
+              <p className="text-sm md:text-base mb-4 md:mb-8 text-green-100/90">Completa estos sencillos pasos para registrar tu cuenta.</p>
             </div>
           </div>
         </div>
         {/* Right side */}
-        <div className="w-1/2 flex items-center justify-center">
-          <div className="w-3/4 max-w-lg p-8 rounded-2xl text-gray-200 shadow-lg">
-            <h3 className="text-xl font-semibold mb-2">
+        <div className="w-full md:w-1/2 flex items-center justify-center py-8 md:py-0 px-4 md:px-0">
+          <div className="w-full md:w-3/4 max-w-lg p-6 md:p-8 rounded-2xl text-gray-200 shadow-lg">
+            <h3 className="text-lg md:text-xl font-semibold mb-2">
               Regístrate para la carrera Sendero Olvidado Trail Run
             </h3>
-            <p className="text-sm text-gray-400 mb-6">Rellena el siguiente formulario con tus datos personales.</p>
+            <p className="text-xs md:text-sm text-gray-400 mb-6">Rellena el siguiente formulario con tus datos personales.</p>
             <RegisterForm onSubmit={onSubmit} status={status} />
           </div>
         </div>
