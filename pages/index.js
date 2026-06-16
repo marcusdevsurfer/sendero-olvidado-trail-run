@@ -59,9 +59,8 @@ export default function Home() {
         >
           Tu navegador no soporta el video.
         </video>
-        <div className="absolute inset-0 z-5 pointer-events-auto" onClick={(e) => e.preventDefault()} />
-        <div className="absolute bottom-0 left-0 w-full h-32 md:h-64 flex justify-center items-center z-10">
-          <button className="bg-green-950/80 text-lg md:text-2xl text-white font-bold py-4 px-8 rounded hover:scale-105 transition-transform">
+        <div className="absolute bottom-10 w-full h-32 md:h-64 flex justify-center items-center z-10">
+          <button className="bg-green-950/80 text-lg md:text-2xl text-gray-100 font-bold py-4 px-8 rounded hover:scale-110 transition-transform">
             <a className="font-runner" href="#form">
               ¡REGISTRATE AHORA!
             </a>
@@ -72,14 +71,10 @@ export default function Home() {
       {/* Form */}
       <div id="form" className="min-h-screen w-full flex flex-col md:flex-row bg-black">
         {/* Left side */}
-        <div className="w-full md:w-1/2 flex items-center justify-center py-8 md:py-0">
+        <div className="w-full md:w-1/2 flex items-center justify-center pt-8 md:py-0">
           <div className="w-11/12 h-48 md:h-[80vh] p-6 md:p-12 relative overflow-hidden text-white rounded-2xl md:rounded-l-2xl">
             <Image src="/run.jpg" alt="Run" fill className="object-cover absolute inset-0 w-full h-full z-0 rounded-2xl md:rounded-l-2xl" />
             <div className="absolute inset-0 bg-linear-to-br from-green-950/60 via-green-950/50 to-green-900/30 z-1"></div>
-            {/* <div className="absolute left-0 bottom-0 p-4 md:p-10 z-10">
-              <h2 className="text-2xl md:text-4xl font-semibold mb-2 md:mb-4">Corre con nosotros!</h2>
-              <p className="text-sm md:text-base mb-4 md:mb-8 text-green-100/90">Completa estos sencillos pasos para registrar tu cuenta.</p>
-            </div> */}
           </div>
         </div>
         {/* Right side */}
@@ -94,8 +89,7 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full h-16 p-10 bg-black text-gray-200 flex items-center justify-center border-t border-gray-950">
-        <p className="text-sm font-runner">
-          
+        <p className="text-sm font-runner animate-pulse">
           <a href="https://devshore.com.mx" target="_blank" rel="noopener noreferrer">
             crafted by{" "} Devshore
           </a>
