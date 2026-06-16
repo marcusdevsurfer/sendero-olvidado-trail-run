@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Runner";
+  src: url("/fonts/runn.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-runner: "Runner", Arial, Helvetica, sans-serif;
 }
 
 @theme inline {
@@ -12,12 +21,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
+.font-runner {
+  font-family: var(--font-runner);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+
 html {
   scroll-behavior: smooth;
 }
