@@ -93,10 +93,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full h-16 p-10 bg-black text-gray-200 flex items-center justify-start border-t border-gray-950">
+      <div className="w-full h-16 p-10 bg-black text-gray-200 flex items-center justify-center border-t border-gray-950">
         <p className="text-sm font-runner">
+          
           <a href="https://devshore.com.mx" target="_blank" rel="noopener noreferrer">
-            Devshore
+            crafted by{" "} Devshore
           </a>
         </p>
       </div>
