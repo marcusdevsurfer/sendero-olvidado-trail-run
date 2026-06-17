@@ -1,17 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import TermsAndConditionModal from "./TermsAndConditionsModal";
 
-export default function RegisterForm({ onSubmit, status }) {
+export default function RegisterForm({ onSubmit, status, countInfo }) {
     const [isTermsOpen, setIsTermsOpen] = useState(false);
+    const [isFull, setIsFull] = useState(countInfo?.count >= countInfo?.max);
     const { register, handleSubmit, reset } = useForm();
 
+    useEffect(() => {
+        setIsFull(countInfo?.count >= countInfo?.max);
+    }, [countInfo]);
+
     const onSubmitForm = async (data) => {
+        if (isFull) {
+            return;
+        }
+
         const result = await onSubmit(data);
         if (result?.success) {
             reset();
         }
     };
+
+    const submitButtonLabel = isFull ? "Cupo lleno" : "Enviar";
+
+    // Si el cupo está lleno mostramos un mensaje minimalista en lugar del formulario
+    if (isFull) {
+        return (
+            <div className="flex items-center justify-center h-64 md:h-80">
+                <div className="text-center">
+                    <h4 className="text-2xl md:text-3xl font-semibold text-white font-runner">¡Gracias!</h4>
+                    <p className="text-sm md:text-base text-white/80 mt-2 font-runner">Cupos agotados ¡nos vemos en la línea de salida!</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <>
@@ -71,7 +94,7 @@ export default function RegisterForm({ onSubmit, status }) {
                     </div>
                 )}
 
-                <button className="font-runner w-full bg-green-950/95 hover:bg-green-900/80 transition-colors text-white font-semibold py-2 rounded-md text-sm md:text-base" type="submit">Enviar</button>
+                <button disabled={isFull} className="font-runner w-full bg-green-950/95 hover:bg-green-900/80 transition-colors text-white font-semibold py-2 rounded-md text-sm md:text-base" type="submit">{submitButtonLabel}</button>
             </form>
             <TermsAndConditionModal isVisible={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
         </>

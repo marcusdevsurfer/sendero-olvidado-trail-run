@@ -1,13 +1,39 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import RegisterForm from "./components/RegisterForm";
+import ProgressCircle from "./components/ProgressCircle";
 
 export default function Home() {
   const [status, setStatus] = useState(null);
+  const [countInfo, setCountInfo] = useState(null);
 
   useEffect(() => {
     // Prevenir scroll automático al cargar
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const fetchStatus = async () => {
+      try {
+        const response = await fetch("/api/register", {
+          cache: "no-store",
+          headers: { "Pragma": "no-cache", "Cache-Control": "no-cache" }
+        });
+        if (!response.ok) {
+          throw new Error("No se pudo obtener el estado de registros.");
+        }
+        const data = await response.json();
+        setCountInfo({ count: data.count, max: data.maxParticipants });
+      } catch (error) {
+        console.warn(error.message ?? error);
+      }
+    };
+
+    fetchStatus();
+
+    // Polling cada 5 segundos para actualizar contador en tiempo real
+    const interval = setInterval(fetchStatus, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   const onSubmit = async (data) => {
@@ -33,6 +59,8 @@ export default function Home() {
       return { success: false, error: message };
     }
   };
+
+  const isFull = countInfo?.count >= countInfo?.max;
 
   return (
     <main>
@@ -75,16 +103,21 @@ export default function Home() {
           <div className="w-11/12 h-48 md:h-[80vh] p-6 md:p-12 relative overflow-hidden text-white rounded-2xl md:rounded-l-2xl">
             <Image src="/run.jpg" alt="Run" fill className="object-cover absolute inset-0 w-full h-full z-0 rounded-2xl md:rounded-l-2xl" />
             <div className="absolute inset-0 bg-linear-to-br from-green-950/60 via-green-950/50 to-green-900/30 z-1"></div>
+            <ProgressCircle count={countInfo?.count} max={countInfo?.max} />
           </div>
         </div>
         {/* Right side */}
         <div className="w-full md:w-1/2 flex items-center justify-center py-8 md:py-0 px-4 md:px-0">
           <div className="w-full md:w-3/4 max-w-lg p-6 md:p-8 rounded-2xl text-gray-200 shadow-lg">
-            <h3 className="text-lg md:text-xl font-semibold mb-2 font-runner">
-              Regístrate para la carrera Sendero Olvidado Trail Run
-            </h3>
-            <p className="text-xs md:text-sm text-gray-400 mb-6 font-runner">Rellena el siguiente formulario con tus datos personales.</p>
-            <RegisterForm onSubmit={onSubmit} status={status} />
+            {!isFull && (
+              <>
+                <h3 className="text-lg md:text-xl font-semibold mb-2 font-runner">
+                  Regístrate para la carrera Sendero Olvidado Trail Run
+                </h3>
+                <p className="text-xs md:text-sm text-gray-400 mb-6 font-runner">Rellena el siguiente formulario con tus datos personales.</p>
+              </>
+            )}
+            <RegisterForm onSubmit={onSubmit} status={status} countInfo={countInfo} />
           </div>
         </div>
       </div>
