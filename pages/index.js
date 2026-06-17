@@ -51,7 +51,7 @@ export default function Home() {
         throw new Error(result.error || "Error al guardar los datos.");
       }
 
-      setStatus({ type: "success", message: "Registro guardado en Google Sheets." });
+      setStatus({ type: "success", message: "Corredor registrado exitosamente." });
       return { success: true };
     } catch (error) {
       const message = error.message || "Error al enviar el formulario.";
