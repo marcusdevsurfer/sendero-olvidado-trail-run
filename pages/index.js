@@ -72,7 +72,7 @@ export default function Home() {
       {/* Cover Video */}
       <div className="min-h-screen w-full flex items-center justify-center bg-gray-700 relative overflow-hidden">
         <video
-          src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781731306/run-cover_dbzofw.mov"
+          src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781733701/cover-run_uw67eg.mov"
           autoPlay
           loop
           muted
@@ -87,7 +87,7 @@ export default function Home() {
         >
           Tu navegador no soporta el video.
         </video>
-        <div className="absolute bottom-10 w-full h-32 md:h-64 flex justify-center items-center z-10">
+        <div className="absolute bottom-5 w-full h-32 md:h-64 flex justify-center items-center z-10">
           <button className="bg-green-950/80 text-lg md:text-2xl text-gray-100 font-bold py-4 px-8 rounded hover:scale-110 transition-transform">
             <a className="font-runner" href="#form">
               ¡REGISTRATE AHORA!
