@@ -116,8 +116,10 @@ export default async function handler(req, res) {
       });
     }
 
+    const registrationId = `SO-${currentCount + 1}`;
     const values = [
       new Date().toISOString(),
+      registrationId,
       name,
       lastname,
       phone,
@@ -129,7 +131,7 @@ export default async function handler(req, res) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: `${sheetName}!A:H`,
+      range: `${sheetName}!A:I`,
       valueInputOption: "USER_ENTERED",
       requestBody: { values: [values] },
     });
@@ -140,7 +142,7 @@ export default async function handler(req, res) {
       await writeCountCell(spreadsheetId, countRange, newCount);
     }
 
-    return res.status(200).json({ success: true, count: newCount });
+    return res.status(200).json({ success: true, id: registrationId, count: newCount });
   } catch (error) {
     console.error("Sheets API error:", error.message ?? error);
     return res.status(500).json({ error: "Error guardando datos en Google Sheets." });

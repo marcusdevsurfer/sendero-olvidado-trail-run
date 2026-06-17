@@ -72,7 +72,7 @@ export default function Home() {
       {/* Cover Video */}
       <div className="min-h-screen w-full flex items-center justify-center bg-gray-700 relative overflow-hidden">
         <video
-          src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781558132/video-cover_ijpo5c.mp4"
+          src="https://res.cloudinary.com/dl8fw5mv9/video/upload/v1781731306/run-cover_dbzofw.mov"
           autoPlay
           loop
           muted
@@ -101,7 +101,7 @@ export default function Home() {
         {/* Left side */}
         <div className="w-full md:w-1/2 flex items-center justify-center pt-8 md:py-0">
           <div className="w-11/12 h-48 md:h-[80vh] p-6 md:p-12 relative overflow-hidden text-white rounded-2xl md:rounded-l-2xl">
-            <Image src="/run.jpg" alt="Run" fill className="object-cover absolute inset-0 w-full h-full z-0 rounded-2xl md:rounded-l-2xl" />
+            <Image src="https://res.cloudinary.com/dl8fw5mv9/image/upload/v1781732140/image-form_auhdjb.jpg" alt="Run" fill className="object-cover absolute inset-0 w-full h-full z-0 rounded-2xl md:rounded-l-2xl" />
             <div className="absolute inset-0 bg-linear-to-br from-green-950/60 via-green-950/50 to-green-900/30 z-1"></div>
             <ProgressCircle count={countInfo?.count} max={countInfo?.max} />
           </div>
