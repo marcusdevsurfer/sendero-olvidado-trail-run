@@ -51,7 +51,7 @@ export default function RegisterForm({ onSubmit, status, countInfo }) {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                     <div>
-                        <label className="block text-xs md:text-sm text-gray-350 font-runner">Numero</label>
+                        <label className="block text-xs md:text-sm text-gray-350 font-runner">Telefono personal</label>
                         <input type="number" required {...register("phone")} className="mt-1 w-full border border-white/15 rounded px-3 py-2 text-xs md:text-sm text-gray-100" placeholder="ej: 123456789" />
                     </div>
                     <div>
@@ -74,7 +74,7 @@ export default function RegisterForm({ onSubmit, status, countInfo }) {
                     </div>
                     <div>
                         <label className="block text-xs md:text-sm text-gray-350 font-runner md:hidden">Teléfono</label>
-                        <input type="number" required {...register("emergencyContactPhone")} className="mt-1 w-full border border-white/15 rounded px-3 py-2 text-xs md:text-sm text-gray-100" placeholder="Numero de contacto" />
+                        <input type="number" required {...register("emergencyContactPhone")} className="mt-1 w-full border border-white/15 rounded px-3 py-2 text-xs md:text-sm text-gray-100" placeholder="Telefono de emergencia" />
                     </div>
                 </div>
 
