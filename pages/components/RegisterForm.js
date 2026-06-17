@@ -56,7 +56,7 @@ export default function RegisterForm({ onSubmit, status }) {
                 </div>
 
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between md:space-x-2 space-y-2 md:space-y-0">
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center justify-center space-x-2">
                         <input id="acceptTerms" type="checkbox" required {...register("acceptTerms")} className="h-4 w-4" />
                         <label htmlFor="acceptTerms" className="text-xs md:text-sm text-gray-350 font-runner">Acepto los términos y condiciones</label>
                     </div>
